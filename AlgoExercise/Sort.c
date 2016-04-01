@@ -5,12 +5,7 @@
  *      Author: helmelig
  */
 
-#include <cmocka.h>
-#include <stdio.h>
-
-#define NELEMS(x)  (sizeof(x) / sizeof((x)[0]))
-
-typedef unsigned char u8;
+#include <Util.h>
 
 void swap(u8 testArray[], u8 index1, u8 index2);
 void Sort_Insertion(u8 testArray[], u8 size);
@@ -29,6 +24,7 @@ void Sort_Insertion(u8 testArray[], u8 size) {
 
 	}
 }
+
 
 void SORT_INSERTION_TEST(void **state) {
 

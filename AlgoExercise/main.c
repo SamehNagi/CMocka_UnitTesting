@@ -2,11 +2,8 @@
 #define NULL 0
 #endif
 
-#include <stdarg.h>
-#include <stddef.h>
-#include <setjmp.h>
-#include <cmocka.h>
-#include <stdio.h>
+
+#include <Util.h>
 
 extern void SORT_INSERTION_TEST(void **state);
 
