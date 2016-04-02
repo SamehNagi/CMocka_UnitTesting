@@ -9,6 +9,8 @@ extern void SORT_MERGE_TEST(void **state);
 
 int main(void) {
 
+	cmocka_set_message_output(CM_OUTPUT_TAP);
+
 	const struct CMUnitTest tests[] = {
 	cmocka_unit_test(SORT_INSERTION_TEST),
 	cmocka_unit_test(SORT_MERGE_TEST) };

@@ -6,11 +6,10 @@
  */
 
 #include <Util.h>
+#include "Sort.h"
 
-void swap(u8 testArray[], u8 index1, u8 index2);
-void Sort_Insertion(u8 testArray[], u8 size);
-void Sort_Merge(u8 testArray[], u8 size, u8 leftStartIndex);
-void merge(u8 testArray[], const u8 startIndex, const u8 size);
+static void swap(u8 testArray[], u8 index1, u8 index2);
+static void merge(u8 testArray[], const u8 startIndex, const u8 size);
 
 /*  Insertion sort:
  *  Stable
@@ -34,21 +33,7 @@ void Sort_Insertion(u8 testArray[], u8 size) {
 	}
 }
 
-void SORT_INSERTION_TEST(void **state) {
 
-	(void) state;
-
-	u8 testArray[] = { 3, 7, 1, 2, 9, 5 };
-	const u8 expcted[] = { 1, 2, 3, 5, 7, 9 };
-
-	Sort_Insertion(testArray, (u8) NELEMS(testArray));
-
-	u8 index = 0;
-	for (index = 0; index < NELEMS(expcted); index++) {
-		assert_int_equal(testArray[index], expcted[index]);
-	}
-
-}
 /**
  * Algo: -If the input sequence has only one element, return.
  *       -Partition the input sequence into two halves.
@@ -74,7 +59,7 @@ void Sort_Merge(u8 testArray[], u8 size, u8 start) {
 	return;
 }
 
-void merge(u8 testArray[], const u8 startIndex, const u8 size) {
+static void merge(u8 testArray[], const u8 startIndex, const u8 size) {
 
 	int leftIndex = startIndex;
 	int rightIndex = startIndex + size / 2;
@@ -90,29 +75,10 @@ void merge(u8 testArray[], const u8 startIndex, const u8 size) {
 	}
 }
 
-void swap(u8 testArray[], u8 index1, u8 index2) {
+static void swap(u8 testArray[], u8 index1, u8 index2) {
 	u8 temp = testArray[index1];
 	testArray[index1] = testArray[index2];
 	testArray[index2] = temp;
 }
 
-void SORT_MERGE_TEST(void **state) {
 
-	(void) state;
-
-	u8 testArray[] = { 3, 7, 1, 2, 9, 5, 4, 6 };
-	const u8 expcted[] = { 1, 2, 3, 4, 5, 6, 7, 9 };
-
-	Sort_Merge(testArray, NELEMS(testArray), 0);
-#ifdef DEBUG
-	u8 printIndex = 0;
-	for (printIndex = 0; printIndex < NELEMS(testArray); printIndex++) {
-		printf("%d ", testArray[printIndex]);
-	}
-#endif
-	u8 index = 0;
-	for (index = 0; index < NELEMS(expcted); index++) {
-		assert_int_equal(testArray[index], expcted[index]);
-	}
-
-}
