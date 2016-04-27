@@ -8,7 +8,11 @@
 #ifndef SORT_H_
 #define SORT_H_
 
-extern void Sort_Insertion(u8 testArray[], u8 size);
-extern void Sort_Merge(u8 testArray[], u8 size, u8 leftStartIndex);
+extern u8 ALED_u8DiagStatus1;
+extern u8 ALED_u8DiagStatus2;
+extern u8 ALED_u8DiagStatus3;
+extern u8 ALED_u8DiagStatus4;
+
+extern void ALED_vidInit(void);
 
 #endif /* SORT_H_ */

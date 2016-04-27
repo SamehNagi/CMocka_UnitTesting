@@ -6,23 +6,20 @@
  */
 #include <Util.h>
 #include "Sort.h"
-void SORT_INSERTION_TEST(void **state) {
+
+void ALED_vidInit_TEST(void **state) {
 
 	(void) state;
 
-	u8 testArray[] = { 3, 7, 1, 2, 9, 5 };
-	const u8 expcted[] = { 1, 2, 3, 5, 7, 9 };
+	ALED_vidInit();
 
-	Sort_Insertion(testArray, (u8) NELEMS(testArray));
-
-	u8 index = 0;
-	for (index = 0; index < NELEMS(expcted); index++) {
-		assert_int_equal(testArray[index], expcted[index]);
-	}
-
+	assert_int_equal(ALED_u8DiagStatus1, 15);
+	assert_int_equal(ALED_u8DiagStatus2, 25);
+	assert_int_equal(ALED_u8DiagStatus3, 35);
+	assert_int_equal(ALED_u8DiagStatus4, 30);
 }
 
-void SORT_MERGE_TEST(void **state) {
+/*void SORT_MERGE_TEST(void **state) {
 
 	(void) state;
 
@@ -41,4 +38,4 @@ void SORT_MERGE_TEST(void **state) {
 		assert_int_equal(testArray[index], expcted[index]);
 	}
 	//assert_int_equal(0,5);
-}
+}*/
