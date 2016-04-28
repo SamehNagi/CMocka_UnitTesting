@@ -5,19 +5,39 @@
  *      Author: helmelig
  */
 
+/******************************************************************************/
+/*                          Header Files included                             */
+/******************************************************************************/
 #include <Util.h>
+#include "types.h"
+#include "Sort_cfg.h"
 #include "Sort.h"
 
-u8 ALED_u8DiagStatus1;
-u8 ALED_u8DiagStatus2;
-u8 ALED_u8DiagStatus3;
-u8 ALED_u8DiagStatus4;
+/******************************************************************************/
+/****************************** zone variables ********************************/
+/******************************************************************************/
+u8 SORT_u8Value1;
+u8 SORT_u8Value2;
+u8 SORT_u8Value3;
+u8 SORT_u8Value4;
 
-void ALED_vidInit(void)
+u8 SORT_u8Value1ShR;
+u8 SORT_u8Value2ShL;
+u8 SORT_u8Value3AndValue4;
+/******************************************************************************/
+/****************************** Public Functions ******************************/
+/******************************************************************************/
+void SORT_vidInit(void)
 {
-  ALED_u8DiagStatus1 = (u8)15;
-  ALED_u8DiagStatus2 = (u8)25;
-  ALED_u8DiagStatus3 = (u8)35;
-  ALED_u8DiagStatus4 = (u8)30;
+  SORT_u8Value1 = (u8)255;
+  SORT_u8Value2 = (u8)15;
+  SORT_u8Value3 = (u8)35;
+  SORT_u8Value4 = (u8)30;
+
+  SORT_u8Value1ShR = SORT_u8Value1 >> 4;
+  SORT_u8Value2ShL = SORT_u8Value2 << 2;
+  SORT_u8Value3AndValue4 = SORT_u8Value3 & SORT_u8Value4;
+
+  return;
 }
 
